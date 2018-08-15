@@ -1,7 +1,3 @@
-rm(list = ls())
-
-
-### Eigentlich müsste man jetzt ja noch the number of nosebleeds durch die duration teilen:
 if(!require(MASS)) install.packages("MASS")
 require(MASS)
 library(MASS)
@@ -24,11 +20,11 @@ library(rpart)
 
 
 ### Read in Data:
-first <- read.csv("C:/Users/ba9tr4/Desktop/Bewerbungen/Bayer/Data_Minig_Scenario/data/randomization.csv",header=TRUE)
-second <- read.csv("C:/Users/ba9tr4/Desktop/Bewerbungen/Bayer/Data_Minig_Scenario/data/subject.csv",header=TRUE)
-third <- read.csv("C:/Users/ba9tr4/Desktop/Bewerbungen/Bayer/Data_Minig_Scenario/data/efficacy.csv",header=TRUE)
+first <- read.csv("C:/.../data/randomization.csv",header=TRUE)
+second <- read.csv("C:/.../data/subject.csv",header=TRUE)
+third <- read.csv("C:/.../data/efficacy.csv",header=TRUE)
 
-### Conclude in one Dataframe:
+### Data in one Dataframe:
 Data <- matrix(NA,nrow = dim(first[1]), ncol = dim(first)[2]+dim(second)[2]+dim(third)[2] -2)
 Data <- as.data.frame(Data)
 n <- nrow(Data)
@@ -267,7 +263,7 @@ ggplot(plot_data_former_both, aes(fill=Period, y=country_means_both, x=country_l
   geom_point(aes(colour = Period), size = 4)+
   labs(x = "Country", y = "Arithmetic Mean")+
   ylim(0,3)+
-  ggtitle("Country specific arithmetic means for nosebleeds")+
+  ggtitle("Country specific means for nosebleeds")+
   theme(plot.title = element_text(hjust = 0.5))+geom_path(aes(group = country_levels_both))
 
 
@@ -288,7 +284,7 @@ ggplot(plot_data_former_both, aes(fill=Treatment, y=country_means_Treatment, x=c
   geom_point(aes(colour = Treatment), size = 4)+
   labs(x = "Country", y = "Arithmetic Mean")+
   ylim(0,1.2)+
-  ggtitle("Country specific arithmetic means for nosebleeds")+
+  ggtitle("Country specific means for nosebleeds")+
   theme(plot.title = element_text(hjust = 0.5))+geom_path(aes(group = country_levels_both))
 
 
